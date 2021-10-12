@@ -3,8 +3,9 @@ import { toast } from "react-toastify";
 import { get, handleError, post } from "../../api/apiUtils";
 const baseUrl = "/api/users/";
 
-export function add(user) {
-  post(baseUrl + "add", user);
+export async function add(user) {
+  const response = await post(baseUrl + "add", user);
+  return response.ok;
 }
 
 export function login(user) {
