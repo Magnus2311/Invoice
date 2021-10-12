@@ -4,6 +4,7 @@ import FormText from "../../common/FormText";
 import * as emailService from "../../../services/helpers/emailsService";
 import ConfirmationEmailTemplate from "../templates/emails/ConfirmationEmailTemplate";
 import ReactDomServer from "react-dom/server";
+import { toast } from "react-toastify";
 
 const Registration = ({ history }) => {
   const [isValidEmail, setIsValidEmail] = useState(true);
@@ -67,7 +68,7 @@ const Registration = ({ history }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const template = <ConfirmationEmailTemplate username={username} />;
     const userToInsert = {
@@ -76,8 +77,14 @@ const Registration = ({ history }) => {
       username: username,
       template: ReactDomServer.renderToStaticMarkup(template),
     };
-    usersDb.add(userToInsert);
-    history.push(`/auth/emailsent/${username}`);
+    if (await usersDb.add(userToInsert)) {
+      history.push(`/auth/emailsent/${username}`)
+    } else {
+      setPassword("");
+      setConfirmPassword("");
+      setIsRegisterActive(false);
+      toast.error("Registration failed! Please try again later!");
+    };
   };
 
   return (
