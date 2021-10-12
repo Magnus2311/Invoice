@@ -10,7 +10,7 @@ export async function add(user) {
 
 export function login(user) {
   return post(baseUrl + "login", user)
-    .then(async (response) => {
+    .then(async response => {
       var isSuccessful = response.status === 200;
       var loginResponse = {
         isSuccessful: isSuccessful,
@@ -18,7 +18,7 @@ export function login(user) {
       };
       return loginResponse;
     })
-    .then((loginResponse) => {
+    .then(loginResponse => {
       if (loginResponse.isSuccessful)
         toast.success("You've logged in successfully!");
       else toast.error("Login failed! Check your credentials!");
@@ -29,14 +29,14 @@ export function login(user) {
 
 export function changePassword(oldPassword, newPassword) {
   return post(baseUrl + "changePassword", { oldPassword, newPassword })
-    .then(async (response) => {
+    .then(async response => {
       var isSuccessful = response.status === 200;
       var loginResponse = {
         isSuccessful: isSuccessful,
       };
       return loginResponse;
     })
-    .then((loginResponse) => {
+    .then(loginResponse => {
       debugger;
       if (loginResponse.isSuccessful)
         toast.success("Password changed successfully");
@@ -56,7 +56,7 @@ export const resetPassword = (token, newPassword) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ token, newPassword }),
-  }).then(async (response) => {
+  }).then(async response => {
     if (response.status === 200) {
       toast.success("Password changed successfully");
       return true;
@@ -67,9 +67,14 @@ export const resetPassword = (token, newPassword) => {
   });
 };
 
+export const resendConfirmationEmail = async user => {
+  const response = await post(baseUrl + "sendSecondaryConfirmationEmail", user);
+  return response.ok;
+};
+
 export function refreshAccessToken() {
   return get(baseUrl + "getAccessToken")
-    .then(async (response) => {
+    .then(async response => {
       var isSuccessful = response.status === 200;
       var loginResponse = {
         isSuccessful: isSuccessful,
@@ -78,5 +83,5 @@ export function refreshAccessToken() {
       return loginResponse;
     })
     .catch(handleError)
-    .then((loginResponse) => loginResponse);
+    .then(loginResponse => loginResponse);
 }
