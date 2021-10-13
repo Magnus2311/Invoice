@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "./components/common/Contexts/AuthContext";
 import { authenticate } from "./services/auth/authenticate";
+import "./App.css";
 
 function App() {
   const [user, setUser] = React.useState({});
