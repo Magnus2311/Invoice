@@ -5,10 +5,11 @@ import { toast } from "react-toastify";
 const baseUrl = "/api/users/";
 
 export const authenticate = () => {
-  return get(baseUrl + "getUsername")
-    .then(handleResponse)
-    .then((userResponse) => {
-      return userResponse;
+  return fetch(baseUrl + "getUsername")
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
     })
     .catch(handleError);
 };
@@ -21,7 +22,7 @@ export const checkConfirmationToken = (email, token) => {
   return fetch(`${baseUrl}confirmEmail?email=${email}&token=${token}`);
 };
 
-export const checkResetPasswordToken = (token) => {
+export const checkResetPasswordToken = token => {
   return fetch(`${baseUrl}checkResetPassword?token=${token}`, {
     method: "GET",
     credentials: "same-origin",
@@ -30,14 +31,14 @@ export const checkResetPasswordToken = (token) => {
     headers: {
       "Content-Type": "application/json",
     },
-  }).then((response) => {
+  }).then(response => {
     if (response.status === 200) {
       return response.text();
     }
   });
 };
 
-export const sendResetPasswordEmail = (user) => {
+export const sendResetPasswordEmail = user => {
   return fetch(baseUrl + "sendResetPasswordEmail", {
     method: "POST",
     credentials: "same-origin",
@@ -47,7 +48,7 @@ export const sendResetPasswordEmail = (user) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(user),
-  }).then((response) => {
+  }).then(response => {
     if (response.status === 200) {
       toast.success(
         `E-mail to reset your password was sent to ${user.username}`

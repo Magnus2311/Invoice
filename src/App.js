@@ -10,12 +10,13 @@ import { authenticate } from "./services/auth/authenticate";
 function App() {
   const [user, setUser] = React.useState({});
   React.useEffect(() => {
-    authenticate().then((userRes) => setUser(userRes));
+    debugger;
+    authenticate().then(userRes => setUser(userRes));
   }, []);
   return (
     <AuthContext.Provider value={{ user: user, setUser: setUser }}>
       <Layout />
-      <div className="container app-container">
+      <div className="app-container">
         <AppRouter />
       </div>
       <ToastContainer />
