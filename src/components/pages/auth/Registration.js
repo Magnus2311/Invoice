@@ -14,19 +14,19 @@ const Registration = ({ history }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleUsernameChange = (e) => {
+  const handleUsernameChange = e => {
     setUsername(e.target.value);
     changeIsRegisterActive(e.target.name, e.target.value);
   };
 
-  const handlePasswordChange = (e) => {
+  const handlePasswordChange = e => {
     setPassword(e.target.value);
     if (e.target.value === "" && confirmPassword === "")
       setIsPasswordMatching(true);
     changeIsRegisterActive(e.target.name, e.target.value);
   };
 
-  const handleConfirmPasswordChange = (e) => {
+  const handleConfirmPasswordChange = e => {
     setConfirmPassword(e.target.value);
     setIsPasswordMatching(e.target.value === password);
     changeIsRegisterActive(e.target.name, e.target.value);
@@ -68,7 +68,7 @@ const Registration = ({ history }) => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const template = <ConfirmationEmailTemplate username={username} />;
     const userToInsert = {
@@ -78,22 +78,17 @@ const Registration = ({ history }) => {
       template: ReactDomServer.renderToStaticMarkup(template),
     };
     if (await usersDb.add(userToInsert)) {
-      history.push(`/auth/emailsent/${username}`)
+      history.push(`/auth/emailsent/${username}`);
     } else {
       setPassword("");
       setConfirmPassword("");
       setIsRegisterActive(false);
       toast.error("Registration failed! Please try again later!");
-    };
+    }
   };
 
   return (
     <>
-      <img
-        alt="Life Mode logo"
-        src="/images/logos/logo_transparent.png"
-        style={{ height: "20rem", width: "20rem", alignSelf: "baseline" }}
-      />
       <h3>Let's get started</h3>
       <h5>Sign up for free and get a lot of perks!</h5>
       <form onSubmit={handleSubmit} className="add-form">

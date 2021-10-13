@@ -13,7 +13,7 @@ const ResetPasswordEmailTemplate = () => {
     >
       <img
         src="cid:{0}"
-        alt="LifeModeLogo"
+        alt="InvoiceLogo"
         style={{ width: "200px", height: "200px" }}
       />
       <h3>Reset password for Life Mode</h3>
