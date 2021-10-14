@@ -55,19 +55,19 @@ const Layout = () => {
             <NavDropdown.Item className="nav-dropdown-item">
               <Link
                 className="dropdown-item"
-                to="/categories/add"
+                to="/items/addItem"
                 onClick={handleClick}
               >
-                Нещо 1
+                Стока
               </Link>
             </NavDropdown.Item>
             <NavDropdown.Item className="nav-dropdown-item">
               <Link
                 className="dropdown-item"
-                to="/products/add"
+                to="/partners/addPartner"
                 onClick={handleClick}
               >
-                Нещо 2
+                Партньор
               </Link>
             </NavDropdown.Item>
           </NavDropdown>
