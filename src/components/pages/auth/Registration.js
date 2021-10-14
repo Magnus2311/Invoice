@@ -89,6 +89,10 @@ const Registration = ({ history }) => {
 
   return (
     <>
+        alt="Invoice logo"
+        src="/img/logos/invoice.png"
+        style={{ height: "20rem", width: "20rem", alignSelf: "baseline" }}
+      />
       <h3>Let's get started</h3>
       <h5>Sign up for free and get a lot of perks!</h5>
       <form onSubmit={handleSubmit} className="add-form">

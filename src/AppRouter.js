@@ -11,6 +11,7 @@ import EmailSent from "./components/pages/auth/EmailSent";
 import EmailConfirmationPage from "./components/pages/auth/EmailConfirmationPage";
 import Index from "./components/pages/auth/Index";
 import ResetPassword from "./components/pages/auth/ResetPasswordPage";
+import AddItemPage from "./components/pages/items/AddItemPage";
 
 function AppRouter(props) {
   const { dispatch } = props;
@@ -33,6 +34,8 @@ function AppRouter(props) {
           component={EmailConfirmationPage}
         />
         <Route path="/auth/index" component={Index} />
+        <Route path="/items/addItem" component={AddItemPage} />
+        {/* <Route path="/partners/addPartner" component={AddPartnerPage} /> */}
         <Route path="/auth/resetPassword/:token" component={ResetPassword} />
       </Switch>
     </>
