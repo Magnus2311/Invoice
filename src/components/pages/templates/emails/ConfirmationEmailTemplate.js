@@ -12,7 +12,7 @@ const ConfirmationEmailTemplate = ({ username }) => {
     >
       <img
         src="cid:{0}"
-        alt="LifeModeLogo"
+        alt="InvoiceLogo"
         style={{ width: "200px", height: "200px" }}
       />
       <h3>Confirm email for Life Mode</h3>
