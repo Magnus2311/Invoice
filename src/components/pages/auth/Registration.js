@@ -90,8 +90,8 @@ const Registration = ({ history }) => {
   return (
     <>
       <img
-        alt="Life Mode logo"
-        src="/images/logos/logo_transparent.png"
+        alt="Invoice logo"
+        src="/img/logos/invoice.png"
         style={{ height: "20rem", width: "20rem", alignSelf: "baseline" }}
       />
       <h3>Let's get started</h3>
