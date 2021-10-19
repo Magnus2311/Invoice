@@ -3,6 +3,8 @@ import * as itemAction from "../../../redux/actions/itemAction";
 import { connect } from "react-redux";
 import { AuthContext } from "../../common/Contexts/AuthContext";
 import "../../../css/addItemPage.css";
+import AddBox from "../../common/AddBox";
+import FormInput from "../../common/FormInput";
 
 const emptyItem = {
   name: "",
@@ -21,7 +23,6 @@ const AddItemPage = (props) => {
     setItem({ ...item, [event.target.name]: event.target.value });
   };
   const handleSubmit = (event) => {
-    debugger;
     setItem({ ...item, user: userC });
     event.preventDefault();
     props.onAddItem(item);
@@ -30,59 +31,53 @@ const AddItemPage = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="add-box">
+      <AddBox>
         <div className="welcome">Добавяне на стока</div>
         <div className="input-fields">
-          <input
+          <FormInput
             type="text"
             name="name"
             placeholder="Име"
             value={item.name}
             onChange={handleChange}
-            className="input-line full-width"
-          ></input>
-          <input
+          />
+          <FormInput
             type="text"
             placeholder="Баркод"
             name="barcode"
             onChange={handleChange}
-            className="input-line full-width"
-          ></input>
-          <input
+          />
+          <FormInput
             type="text"
             placeholder="Код"
             name="code"
             onChange={handleChange}
-            className="input-line full-width"
-          ></input>
-          <input
+          />
+          <FormInput
             type="text"
             placeholder="Мярка"
             name="measure"
             onChange={handleChange}
-            className="input-line full-width"
-          ></input>
-          <input
+          />
+          <FormInput
             type="text"
             placeholder="Единична цена"
             name="price"
             onChange={handleChange}
-            className="input-line full-width"
-          ></input>
-          <input
+          />
+          <FormInput
             type="text"
             placeholder="Сметка"
             name="account"
             onChange={handleChange}
-            className="input-line full-width"
-          ></input>
+          />
         </div>
         <div className="centerItems" style={{ marginTop: "20px" }}>
           <button className="ghost-round middle-width " type="submit">
             Добавяне
           </button>
         </div>
-      </div>
+      </AddBox>
     </form>
   );
 };

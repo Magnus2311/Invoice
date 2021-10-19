@@ -2,16 +2,16 @@ import React from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
 import Home from "./components/pages/home/HomePage";
 import AboutPage from "./components/pages/about/AboutPage";
-import HomePage from "./components/pages/home/HomePage";
 import { connect, useStore } from "react-redux";
 import Registration from "./components/pages/auth/Registration";
 import Login from "./components/pages/auth/Login";
-import { AuthenticatedRoute } from "./components/pages/auth/AuthenticatedRoute";
+import AuthenticatedRoute from "./components/pages/auth/AuthenticatedRoute";
 import EmailSent from "./components/pages/auth/EmailSent";
 import EmailConfirmationPage from "./components/pages/auth/EmailConfirmationPage";
 import Index from "./components/pages/auth/Index";
 import ResetPassword from "./components/pages/auth/ResetPasswordPage";
 import AddItemPage from "./components/pages/items/AddItemPage";
+import MyCompanyPage from "./components/pages/company/MyCompanyPage";
 
 function AppRouter(props) {
   const { dispatch } = props;
@@ -37,6 +37,7 @@ function AppRouter(props) {
         <Route path="/items/addItem" component={AddItemPage} />
         {/* <Route path="/partners/addPartner" component={AddPartnerPage} /> */}
         <Route path="/auth/resetPassword/:token" component={ResetPassword} />
+        <AuthenticatedRoute path="/my-company" Component={MyCompanyPage} />
       </Switch>
     </>
   );
