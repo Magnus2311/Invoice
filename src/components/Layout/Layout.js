@@ -71,6 +71,9 @@ const Layout = () => {
               </Link>
             </NavDropdown.Item>
           </NavDropdown>
+          <Link className="nav-link" to="/items/all" onClick={handleClick}>
+            Стоки
+          </Link>
         </Nav>
       </Navbar.Collapse>
       <UserNavMenu />
