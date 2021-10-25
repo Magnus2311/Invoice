@@ -21,3 +21,20 @@ export const updateCompanyData = async (myCompany) => {
     );
   }
 };
+export const loadMyCompany = async () => {
+  var response = await fetch(baseUrl, {
+    method: "GET",
+    credentials: "same-origin",
+    cache: "no-cache",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (response.ok) {
+    return await response.json();
+  } else {
+    throw undefined;
+  }
+};

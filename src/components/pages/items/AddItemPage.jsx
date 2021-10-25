@@ -72,11 +72,6 @@ const AddItemPage = (props) => {
             onChange={handleChange}
           />
         </div>
-        <div className="centerItems" style={{ marginTop: "20px" }}>
-          <button className="ghost-round middle-width " type="submit">
-            Добавяне
-          </button>
-        </div>
       </AddBox>
     </form>
   );
