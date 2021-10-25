@@ -12,15 +12,9 @@ import Index from "./components/pages/auth/Index";
 import ResetPassword from "./components/pages/auth/ResetPasswordPage";
 import AddItemPage from "./components/pages/items/AddItemPage";
 import MyCompanyPage from "./components/pages/company/MyCompanyPage";
-
-function AppRouter(props) {
-  const { dispatch } = props;
-
+import AllItemsPage from "./components/pages/items/AllItemsPage";
+function AppRouter() {
   const location = useLocation();
-
-  var state = useStore().getState();
-  //   if (!state.categories || state.categories.length === 0)
-  //     dispatch(categoryActions.loadCategories());
   return (
     <>
       <Switch key={location.key} location={location}>
@@ -36,6 +30,7 @@ function AppRouter(props) {
         <Route path="/auth/index" component={Index} />
         <Route path="/items/addItem" component={AddItemPage} />
         {/* <Route path="/partners/addPartner" component={AddPartnerPage} /> */}
+        <Route path="/items/all" component={AllItemsPage} />
         <Route path="/auth/resetPassword/:token" component={ResetPassword} />
         <AuthenticatedRoute path="/my-company" Component={MyCompanyPage} />
       </Switch>

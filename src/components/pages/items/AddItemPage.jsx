@@ -17,7 +17,6 @@ const emptyItem = {
 };
 const AddItemPage = (props) => {
   const [item, setItem] = useState(emptyItem);
-  const { userC } = useContext(AuthContext);
 
   const handleChange = (event) => {
     setItem({ ...item, [event.target.name]: event.target.value });
