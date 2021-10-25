@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect, useSelector } from "react-redux";
-import { FormInput } from "../../common/FormInput";
+import FormInput from "../../common/FormInput";
 import * as itemAction from "../../../redux/actions/itemAction";
 
 const emptyFilter = {
