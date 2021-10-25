@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import * as itemAction from "../../../redux/actions/itemAction";
 import { connect } from "react-redux";
-import { AuthContext } from "../../common/Contexts/AuthContext";
 import "../../../css/addItemPage.css";
 import AddBox from "../../common/AddBox";
 import FormInput from "../../common/FormInput";
