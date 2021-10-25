@@ -70,7 +70,7 @@ const MyCompanyPage = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <AddBox btnText={myCompany.id ? "Обновяване" : "Добавяне"}>
+      <AddBox btnText={myCompany.id ? "Обновяване" : ""}>
         <div className="welcome">Моята фирма</div>
         <div className="input-fields">
           <FormInput
