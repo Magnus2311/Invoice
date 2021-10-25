@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AddBox from "../../common/AddBox";
 import FormInput from "../../common/FormInput";
+import SearchForCompany from "./SearchForCompany";
 import * as myCompanyService from "../../../services/my-company/myCompany";
 
 const emptyAddress = {
@@ -73,6 +74,7 @@ const MyCompanyPage = () => {
       <AddBox btnText={myCompany.id ? "Обновяване" : ""}>
         <div className="welcome">Моята фирма</div>
         <div className="input-fields">
+          <SearchForCompany />
           <FormInput
             type="text"
             name="companyName"
