@@ -3,10 +3,10 @@ import * as webApi from "../../api/itemApi";
 import { toast } from "react-toastify";
 import linq from "linq";
 
-export function loadItems(filter) {
+export function loadItems() {
   return function (dispatch) {
     return webApi
-      .getItems(filter)
+      .getItems()
       .then((items) => {
         dispatch(loadItemsSuccess(items));
       })
@@ -43,16 +43,16 @@ export function saveItem(item) {
   };
 }
 
-export function deleteItemSuccess(item) {
-  return { type: actionTypes.DELETE_ITEM_SUCCESS, item };
+export function deleteItemSuccess(id) {
+  return { type: actionTypes.DELETE_ITEM_SUCCESS, id };
 }
 
-export function deleteItem(item) {
+export function deleteItem(id) {
   return function (dispatch) {
     return webApi
-      .deleteItem(item)
+      .deleteItem(id)
       .then(() => {
-        dispatch(deleteItemSuccess(item));
+        dispatch(deleteItemSuccess(id));
         toast.success("Item deleted successfully!");
       })
       .catch((error) => {

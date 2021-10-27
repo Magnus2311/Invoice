@@ -90,7 +90,7 @@ const Registration = ({ history }) => {
   return (
     <>
         alt="Invoice logo"
-        src="/img/logos/invoice.png"
+        src="/img/invoice.png"
         style={{ height: "20rem", width: "20rem", alignSelf: "baseline" }}
       />
       <h3>Let's get started</h3>
