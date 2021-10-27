@@ -1,13 +1,13 @@
 import React from "react";
 import FormInput from "../../common/FormInput";
-import * as bulstatServices from "../../../services/bulstat/bulstatServices";
+import * as myCompanyServices from "../../../services/my-company/myCompany";
 import { toast } from "react-toastify";
 
 const SearchForCompany = props => {
   const { name, placeholder, value, onChange, className, style, onSuccessfulSearch } = props;
 
   const handleSearchClick = async () => {
-    bulstatServices.searchByBulstat(value).then(reponse => {
+    myCompanyServices.searchByBulstat(value).then(reponse => {
       if (reponse.ok) {
         toast.success("Данните за фирмата бяха попълнени успешно!");
         onSuccessfulSearch(await reponse.json());
