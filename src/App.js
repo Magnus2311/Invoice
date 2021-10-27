@@ -11,8 +11,7 @@ import "./App.css";
 function App() {
   const [user, setUser] = React.useState({});
   React.useEffect(() => {
-    debugger;
-    authenticate().then(userRes => setUser(userRes));
+    authenticate().then((userRes) => setUser(userRes));
   }, []);
   return (
     <AuthContext.Provider value={{ user: user, setUser: setUser }}>

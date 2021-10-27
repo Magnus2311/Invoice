@@ -3,7 +3,7 @@ import { Route } from "react-router";
 import { isAuthenticated } from "../../../services/auth/isAuthenticated";
 import AuthenticateBeforeRender from "./AuthenticateBeforeRender";
 
-export const AuthenticatedRoute = ({ Component, exact, path }) => (
+const AuthenticatedRoute = ({ Component, exact, path }) => (
   <Route
     exact={exact}
     path={path}
@@ -16,3 +16,5 @@ export const AuthenticatedRoute = ({ Component, exact, path }) => (
     }
   />
 );
+
+export default AuthenticatedRoute;
