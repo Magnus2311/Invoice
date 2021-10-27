@@ -13,12 +13,12 @@ const emptyFilter = {
 };
 
 const AllItemsPage = (props) => {
-  const { items, onLoadItems } = props;
+  const { items, onLoadItems, OnDeleteItem } = props;
   const [filter, setFilter] = useState(emptyFilter);
   const [filteredItems, setFilteredItems] = useState(items);
 
   useEffect(() => {
-    onLoadItems(filter);
+    onLoadItems();
   }, []);
 
   const handleChange = (event) => {
@@ -46,6 +46,10 @@ const AllItemsPage = (props) => {
           item.price <= tempFilter.toAmount)
     );
     setFilteredItems(tempItems);
+  };
+
+  const handleDeleteClick = (id) => {
+    OnDeleteItem(id);
   };
 
   return (
@@ -111,6 +115,16 @@ const AllItemsPage = (props) => {
               <div>
                 <p>
                   {item.name} = {item.price}
+                  <img
+                    alt="Invoice logo"
+                    src="/img/delete.png"
+                    onClick={() => handleDeleteClick(item.id)}
+                    style={{
+                      height: "2.5rem",
+                      width: "2.5rem",
+                      alignSelf: "baseline",
+                    }}
+                  />
                 </p>
               </div>
             );
@@ -123,13 +137,17 @@ const AllItemsPage = (props) => {
 const mapStateToProps = (state) => {
   return {
     items: state.items,
+    filteredItems: state.items,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onLoadItems: (filter) => {
-      dispatch(itemAction.loadItems(filter));
+    onLoadItems: () => {
+      dispatch(itemAction.loadItems());
+    },
+    OnDeleteItem: (id) => {
+      dispatch(itemAction.deleteItem(id));
     },
   };
 };
