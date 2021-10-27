@@ -73,6 +73,11 @@ const Login = ({ returnAfterLogin, email, isConfirmation }) => {
     returnAfterLogin
   ) : (
     <>
+      <img
+        alt="Invoice logo"
+        src="/images/logos/logo_transparent.png"
+        style={{ height: "20rem", width: "20rem", alignSelf: "baseline" }}
+      />
       {isConfirmation ? (
         <h5 style={{ color: "#97db48" }}>Email confirmed successfully!</h5>
       ) : (
