@@ -32,12 +32,9 @@ export function saveItem(item) {
     .catch(handleError);
 }
 
-export function deleteItem(item) {
-  return fetch(baseUrl, {
+export function deleteItem(id) {
+  return fetch(baseUrl + "?id=" + id, {
     method: "DELETE",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify(item),
-  })
-    .then(handleResponse)
-    .catch(handleError);
+  }).catch(handleError);
 }

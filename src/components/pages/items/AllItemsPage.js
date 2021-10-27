@@ -48,8 +48,7 @@ const AllItemsPage = (props) => {
   };
 
   const handleDeleteClick = (id) => {
-    var itemToDelete = filteredItems.find((i) => i.id === id);
-    OnDeleteItem(itemToDelete);
+    OnDeleteItem(id);
   };
 
   return (
@@ -146,8 +145,8 @@ const mapDispatchToProps = (dispatch) => {
     onLoadItems: () => {
       dispatch(itemAction.loadItems());
     },
-    OnDeleteItem: (itemToDelete) => {
-      dispatch(itemAction.deleteItem(itemToDelete));
+    OnDeleteItem: (id) => {
+      dispatch(itemAction.deleteItem(id));
     },
   };
 };
