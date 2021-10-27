@@ -17,10 +17,10 @@ const Login = ({ returnAfterLogin, email, isConfirmation }) => {
   const history = useHistory();
   const { setUser } = useContext(AuthContext);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
-    login(currentUser).then((isLoginSuccessful) => {
+    login(currentUser).then(isLoginSuccessful => {
       if (isLoginSuccessful) {
         setUser(currentUser);
         setLogged(true);
@@ -33,7 +33,7 @@ const Login = ({ returnAfterLogin, email, isConfirmation }) => {
     });
   };
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setCurrentUser({ ...currentUser, [e.target.name]: e.target.value });
     changeIsLoginActive(e.target.name, e.target.value);
   };
@@ -59,7 +59,7 @@ const Login = ({ returnAfterLogin, email, isConfirmation }) => {
     }
   };
 
-  const handleResetPassword = (e) => {
+  const handleResetPassword = e => {
     e.preventDefault();
     const template = <ResetPasswordEmailTemplate />;
     const user = {

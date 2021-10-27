@@ -14,19 +14,19 @@ const Registration = ({ history }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleUsernameChange = (e) => {
+  const handleUsernameChange = e => {
     setUsername(e.target.value);
     changeIsRegisterActive(e.target.name, e.target.value);
   };
 
-  const handlePasswordChange = (e) => {
+  const handlePasswordChange = e => {
     setPassword(e.target.value);
     if (e.target.value === "" && confirmPassword === "")
       setIsPasswordMatching(true);
     changeIsRegisterActive(e.target.name, e.target.value);
   };
 
-  const handleConfirmPasswordChange = (e) => {
+  const handleConfirmPasswordChange = e => {
     setConfirmPassword(e.target.value);
     setIsPasswordMatching(e.target.value === password);
     changeIsRegisterActive(e.target.name, e.target.value);
@@ -68,7 +68,7 @@ const Registration = ({ history }) => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const template = <ConfirmationEmailTemplate username={username} />;
     const userToInsert = {
@@ -89,7 +89,6 @@ const Registration = ({ history }) => {
 
   return (
     <>
-      <img
         alt="Invoice logo"
         src="/img/invoice.png"
         style={{ height: "20rem", width: "20rem", alignSelf: "baseline" }}
