@@ -32,7 +32,7 @@ const Layout = () => {
       <Link className="navbar-brand" to="/" onClick={handleClick}>
         <img
           src="/images/logos/logo_transparent_no_text.png"
-          alt="Life Mode logo"
+          alt="Invoice logo"
           style={{ height: "30px", width: "30px", paddingBottom: "5px" }}
         />
         Invoice

@@ -15,7 +15,7 @@ const ConfirmationEmailTemplate = ({ username }) => {
         alt="LifeModeLogo"
         style={{ width: "200px", height: "200px" }}
       />
-      <h3>Confirm email for Life Mode</h3>
+      <h3>Confirm email for Invoice</h3>
       <div>
         You are receiving this email in order to confirm your address. If you
         haven't registered in{" "}

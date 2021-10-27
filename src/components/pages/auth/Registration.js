@@ -78,20 +78,20 @@ const Registration = ({ history }) => {
       template: ReactDomServer.renderToStaticMarkup(template),
     };
     if (await usersDb.add(userToInsert)) {
-      history.push(`/auth/emailsent/${username}`)
+      history.push(`/auth/emailsent/${username}`);
     } else {
       setPassword("");
       setConfirmPassword("");
       setIsRegisterActive(false);
       toast.error("Registration failed! Please try again later!");
-    };
+    }
   };
 
   return (
     <>
       <img
         alt="Invoice logo"
-        src="/img/logos/invoice.png"
+        src="/img/invoice.png"
         style={{ height: "20rem", width: "20rem", alignSelf: "baseline" }}
       />
       <h3>Let's get started</h3>

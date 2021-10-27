@@ -3,10 +3,10 @@ import * as webApi from "../../api/itemApi";
 import { toast } from "react-toastify";
 import linq from "linq";
 
-export function loadItems(filter) {
+export function loadItems() {
   return function (dispatch) {
     return webApi
-      .getItems(filter)
+      .getItems()
       .then((items) => {
         dispatch(loadItemsSuccess(items));
       })

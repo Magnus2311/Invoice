@@ -74,7 +74,7 @@ const Login = ({ returnAfterLogin, email, isConfirmation }) => {
   ) : (
     <>
       <img
-        alt="Life Mode logo"
+        alt="Invoice logo"
         src="/images/logos/logo_transparent.png"
         style={{ height: "20rem", width: "20rem", alignSelf: "baseline" }}
       />

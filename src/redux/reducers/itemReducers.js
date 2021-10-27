@@ -6,6 +6,9 @@ export default function itemReducers(items = [], action) {
       return action.items;
     case actionTypes.SAVE_ITEM_SUCCESS:
       return [...items, { ...action.item }];
+    //TO DO
+    case actionTypes.DELETE_ITEM_SUCCESS:
+      return [...items.filter((item) => item.id !== action.item.id)];
     default:
       return items;
   }

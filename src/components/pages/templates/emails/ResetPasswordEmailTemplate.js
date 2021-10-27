@@ -16,7 +16,7 @@ const ResetPasswordEmailTemplate = () => {
         alt="LifeModeLogo"
         style={{ width: "200px", height: "200px" }}
       />
-      <h3>Reset password for Life Mode</h3>
+      <h3>Reset password for Invoice</h3>
       <div>
         You are receiving this email in order to reset your password. If you
         haven't initiated password reset in{" "}
