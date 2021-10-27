@@ -69,12 +69,16 @@ const MyCompanyPage = () => {
     setBankAccount({ ...bankAccount, [event.target.name]: event.target.value });
   };
 
+  const handleCompanySearch = (companyData) => {
+    setAddress(companyData.address);
+    setMyCompany(companyData.company);
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <AddBox btnText={myCompany.id ? "Обновяване" : ""}>
         <div className="welcome">Моята фирма</div>
         <div className="input-fields">
-          <SearchForCompany />
           <FormInput
             type="text"
             name="companyName"
@@ -83,12 +87,12 @@ const MyCompanyPage = () => {
             onChange={handleChange}
           />
 
-          <FormInput
-            type="text"
+          <SearchForCompany
             name="bulstat"
             placeholder="Булстат"
             value={myCompany.bulstat}
             onChange={handleChange}
+            onSuccessfulSearch={handleCompanySearch}
           />
 
           <FormInput

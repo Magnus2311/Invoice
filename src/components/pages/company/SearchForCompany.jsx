@@ -1,7 +1,22 @@
 import React from "react";
 import FormInput from "../../common/FormInput";
+import * as bulstatServices from "../../../services/bulstat/bulstatServices";
+import { toast } from "react-toastify";
 
-const SearchForCompany = (props) => {
+const SearchForCompany = props => {
+  const { name, placeholder, value, onChange, className, style, onSuccessfulSearch } = props;
+
+  const handleSearchClick = async () => {
+    bulstatServices.searchByBulstat(value).then(reponse => {
+      if (reponse.ok) {
+        toast.success("Данните за фирмата бяха попълнени успешно!");
+        onSuccessfulSearch(await reponse.json());
+      } else {
+        toast.success("В момента търсенето по булстат не е достъпно. Моля опитайте по-късно.")
+      }
+    })
+  };
+
   return (
     <div
       style={{
@@ -10,8 +25,18 @@ const SearchForCompany = (props) => {
         width: "100%",
       }}
     >
-      <FormInput type="text" />
+      <FormInput
+        type="text"
+        type="text"
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        className={className}
+        style={style}
+      />
       <img
+        onClick={handleSearchClick}
         src="./img/search.png"
         style={{
           width: "1rem",
