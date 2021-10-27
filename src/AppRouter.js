@@ -10,7 +10,7 @@ import EmailSent from "./components/pages/auth/EmailSent";
 import EmailConfirmationPage from "./components/pages/auth/EmailConfirmationPage";
 import Index from "./components/pages/auth/Index";
 import ResetPassword from "./components/pages/auth/ResetPasswordPage";
-import AddItemPage from "./components/pages/items/AllItemsPage";
+import AddItemPage from "./components/pages/items/AddItemPage";
 import MyCompanyPage from "./components/pages/company/MyCompanyPage";
 import AllItemsPage from "./components/pages/items/AllItemsPage";
 function AppRouter() {
