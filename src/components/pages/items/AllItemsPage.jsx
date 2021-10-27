@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect, useSelector } from "react-redux";
+import FormInput from "../../common/FormInput";
 import * as itemAction from "../../../redux/actions/itemAction";
 
 const emptyFilter = {
@@ -55,56 +56,56 @@ const AllItemsPage = (props) => {
     <>
       <div style={{ display: "flex", marginTop: "70px" }}>
         <div style={{ margin: "1rem" }}>
-          <input
+          <FormInput
             type="text"
             name="name"
             placeholder="Име"
             value={filter.name}
             onChange={handleChange}
             className="input-line full-width"
-          ></input>
-          <input
+          />
+          <FormInput
             type="text"
             name="code"
             placeholder="Код"
             value={filter.code}
             onChange={handleChange}
             className="input-line full-width"
-          ></input>
-          <input
+          />
+          <FormInput
             type="text"
             name="fromAmount"
             placeholder="От сума"
             value={filter.fromAmount}
             onChange={handleChange}
             className="input-line full-width"
-          ></input>
+          />
         </div>
         <div style={{ margin: "1rem" }}>
-          <input
+          <FormInput
             type="text"
             name="measure"
             placeholder="Мярка"
             value={filter.measure}
             onChange={handleChange}
             className="input-line full-width"
-          ></input>
-          <input
+          />
+          <FormInput
             type="text"
             name="account"
             placeholder="Сметка"
             value={filter.account}
             onChange={handleChange}
             className="input-line full-width"
-          ></input>
-          <input
+          />
+          <FormInput
             type="text"
             name="toAmount"
             placeholder="До сума"
             value={filter.toAmount}
             onChange={handleChange}
             className="input-line full-width"
-          ></input>
+          />
         </div>
       </div>
       <div>
