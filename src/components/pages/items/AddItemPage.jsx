@@ -22,7 +22,6 @@ const AddItemPage = (props) => {
     setItem({ ...item, [event.target.name]: event.target.value });
   };
   const handleSubmit = (event) => {
-    setItem({ ...item, user: userC });
     event.preventDefault();
     props.onAddItem(item);
     setItem(emptyItem);

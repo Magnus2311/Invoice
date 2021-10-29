@@ -13,6 +13,8 @@ import ResetPassword from "./components/pages/auth/ResetPasswordPage";
 import AddItemPage from "./components/pages/items/AddItemPage";
 import MyCompanyPage from "./components/pages/company/MyCompanyPage";
 import AllItemsPage from "./components/pages/items/AllItemsPage";
+import AddPartnerPage from "./components/pages/partners/AddPartnerPage";
+
 function AppRouter() {
   const location = useLocation();
   return (
@@ -29,7 +31,7 @@ function AppRouter() {
         />
         <Route path="/auth/index" component={Index} />
         <Route path="/items/addItem" component={AddItemPage} />
-        {/* <Route path="/partners/addPartner" component={AddPartnerPage} /> */}
+        <Route path="/partners/addPartner" component={AddPartnerPage} />
         <Route path="/items/all" component={AllItemsPage} />
         <Route path="/auth/resetPassword/:token" component={ResetPassword} />
         <AuthenticatedRoute path="/my-company" Component={MyCompanyPage} />
