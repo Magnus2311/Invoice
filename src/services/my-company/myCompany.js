@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 
 const baseUrl = "/api/my-company";
 
-export const updateCompanyData = async (myCompany) => {
+export const updateCompanyData = async myCompany => {
   var response = await fetch(`${baseUrl}`, {
     method: "POST",
     credentials: "same-origin",
@@ -37,4 +37,16 @@ export const loadMyCompany = async () => {
   } else {
     throw undefined;
   }
+};
+
+export const searchByBulstat = bulstat => {
+  return fetch(`${baseUrl}/search-by-bulstat/${bulstat}`, {
+    method: "GET",
+    credentials: "same-origin",
+    cache: "no-cache",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 };

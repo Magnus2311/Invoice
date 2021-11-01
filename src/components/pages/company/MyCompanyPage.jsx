@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AddBox from "../../common/AddBox";
 import FormInput from "../../common/FormInput";
+import SearchForCompany from "./SearchForCompany";
 import * as myCompanyService from "../../../services/my-company/myCompany";
 
 const emptyAddress = {
@@ -68,6 +69,11 @@ const MyCompanyPage = () => {
     setBankAccount({ ...bankAccount, [event.target.name]: event.target.value });
   };
 
+  const handleCompanySearch = (companyData) => {
+    setAddress(companyData.address);
+    setMyCompany(companyData.company);
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <AddBox btnText={myCompany.id ? "Обновяване" : ""}>
@@ -81,12 +87,12 @@ const MyCompanyPage = () => {
             onChange={handleChange}
           />
 
-          <FormInput
-            type="text"
+          <SearchForCompany
             name="bulstat"
             placeholder="Булстат"
             value={myCompany.bulstat}
             onChange={handleChange}
+            onSuccessfulSearch={handleCompanySearch}
           />
 
           <FormInput
